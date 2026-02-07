@@ -1,0 +1,195 @@
+{% extends 'content/base.html' %}
+
+{% block title %}Home - Creativity and Life{% endblock %}
+
+{% block content %}
+<style>
+    .welcome-section {
+        text-align: center;
+        margin-bottom: 60px;
+        padding: 40px 20px;
+        background: white;
+        border-radius: 20px;
+        box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+    }
+    
+    .welcome-section h2 {
+        font-size: 2.5em;
+        margin-bottom: 20px;
+        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+    }
+    
+    .welcome-section p {
+        font-size: 1.3em;
+        color: #666;
+        font-weight: 300;
+    }
+    
+    .categories-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+        gap: 30px;
+        margin-top: 50px;
+    }
+    
+    .category-card {
+        background: white;
+        padding: 40px 30px;
+        border-radius: 20px;
+        text-align: center;
+        transition: all 0.3s ease;
+        border: 3px solid transparent;
+        position: relative;
+        overflow: hidden;
+    }
+    
+    .category-card::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        height: 5px;
+        transition: height 0.3s ease;
+    }
+    
+    .category-card:hover::before {
+        height: 100%;
+        opacity: 0.1;
+    }
+    
+    .category-card:nth-child(1)::before { background: #FF6B9D; }
+    .category-card:nth-child(2)::before { background: #FFA07A; }
+    .category-card:nth-child(3)::before { background: #98D8C8; }
+    .category-card:nth-child(4)::before { background: #F7DC6F; }
+    .category-card:nth-child(5)::before { background: #BB8FCE; }
+    .category-card:nth-child(6)::before { background: #85C1E2; }
+    
+    .category-card:hover {
+        transform: translateY(-10px) scale(1.02);
+        box-shadow: 0 15px 40px rgba(0,0,0,0.15);
+    }
+    
+    .category-icon {
+        font-size: 3.5em;
+        margin-bottom: 20px;
+        display: block;
+    }
+    
+    .category-card h4 {
+        font-size: 1.6em;
+        margin-bottom: 15px;
+        position: relative;
+        z-index: 1;
+    }
+    
+    .category-card:nth-child(1) h4 { color: #FF6B9D; }
+    .category-card:nth-child(2) h4 { color: #FFA07A; }
+    .category-card:nth-child(3) h4 { color: #98D8C8; }
+    .category-card:nth-child(4) h4 { color: #F7DC6F; }
+    .category-card:nth-child(5) h4 { color: #BB8FCE; }
+    .category-card:nth-child(6) h4 { color: #85C1E2; }
+    
+    .category-card p {
+        color: #666;
+        position: relative;
+        z-index: 1;
+        font-weight: 300;
+    }
+    
+    .category-card a {
+        text-decoration: none;
+        color: inherit;
+        display: block;
+    }
+    
+    .cta-section {
+        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        color: white;
+        padding: 50px 40px;
+        border-radius: 20px;
+        margin-top: 60px;
+        text-align: center;
+        box-shadow: 0 10px 40px rgba(102, 126, 234, 0.3);
+    }
+    
+    .cta-section h3 {
+        font-size: 2em;
+        margin-bottom: 20px;
+    }
+    
+    .cta-section p {
+        font-size: 1.2em;
+        margin-bottom: 30px;
+        opacity: 0.95;
+    }
+    
+    .cta-button {
+        background: white;
+        color: #667eea;
+        padding: 15px 40px;
+        text-decoration: none;
+        border-radius: 30px;
+        font-weight: 600;
+        display: inline-block;
+        transition: all 0.3s ease;
+        box-shadow: 0 5px 20px rgba(0,0,0,0.2);
+    }
+    
+    .cta-button:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 8px 30px rgba(0,0,0,0.3);
+    }
+    
+    .empty-state {
+        text-align: center;
+        padding: 80px 20px;
+        background: white;
+        border-radius: 20px;
+        box-shadow: 0 5px 20px rgba(0,0,0,0.08);
+    }
+</style>
+
+<div class="welcome-section">
+    <h2>Welcome to Creativity and Life!</h2>
+    <p>{{ assurance_message }}</p>
+</div>
+
+<div>
+    <h3 style="text-align: center; margin-bottom: 40px; font-size: 2em; color: #333;">✨ Explore Our Categories ✨</h3>
+    <div class="categories-grid">
+        {% for category in categories %}
+        <div class="category-card">
+            <a href="{% url 'category_videos' category.slug %}">
+                <span class="category-icon">
+                    {% if 'cooking' in category.slug %}🍳
+                    {% elif 'jewelry' in category.slug %}💍
+                    {% elif 'craft' in category.slug %}🎨
+                    {% elif 'cake' in category.slug %}🎂
+                    {% elif 'studies' in category.slug %}📚
+                    {% elif 'hobbies' in category.slug %}🎭
+                    {% else %}✨
+                    {% endif %}
+                </span>
+                <h4>{{ category.name }}</h4>
+                <p>{{ category.description|default:"Discover amazing videos and tutorials" }}</p>
+            </a>
+        </div>
+        {% empty %}
+        <div class="empty-state" style="grid-column: 1 / -1;">
+            <p style="font-size: 1.3em; color: #666;">No categories available yet.</p>
+            <p style="color: #999; margin-top: 10px;">Please add some from the admin panel.</p>
+        </div>
+        {% endfor %}
+    </div>
+</div>
+
+<div class="cta-section">
+    <h3>🌟 Ready to Learn Something New? 🌟</h3>
+    <p>Check out our online classes and start your creative journey today!</p>
+    <a href="{% url 'online_classes' %}" class="cta-button">View Online Classes →</a>
+</div>
+{% endblock %}

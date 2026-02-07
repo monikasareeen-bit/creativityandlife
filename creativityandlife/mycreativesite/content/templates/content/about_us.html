@@ -1,0 +1,165 @@
+{% extends 'content/base.html' %}
+
+{% block title %}About Us - Creativity and Life{% endblock %}
+
+{% block content %}
+<style>
+    .page-header {
+        text-align: center;
+        margin-bottom: 50px;
+        padding: 40px 20px;
+        background: white;
+        border-radius: 20px;
+        box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+        position: relative;
+        overflow: hidden;
+    }
+    
+    .page-header::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        height: 6px;
+        background: linear-gradient(90deg, #FF6B9D, #FFA07A, #98D8C8, #F7DC6F, #BB8FCE, #85C1E2);
+    }
+    
+    .page-header h2 {
+        font-size: 2.8em;
+        margin-bottom: 15px;
+        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+    }
+    
+    .about-content {
+        max-width: 900px;
+        margin: 0 auto;
+    }
+    
+    .about-section {
+        background: white;
+        padding: 40px;
+        border-radius: 20px;
+        box-shadow: 0 5px 20px rgba(0,0,0,0.08);
+        margin-bottom: 35px;
+        position: relative;
+        overflow: hidden;
+    }
+    
+    .about-section::before {
+        content: '';
+        position: absolute;
+        left: 0;
+        top: 0;
+        bottom: 0;
+        width: 5px;
+    }
+    
+    .about-section:nth-child(1)::before { background: #FF6B9D; }
+    .about-section:nth-child(2)::before { background: #98D8C8; }
+    .about-section:nth-child(3)::before { background: #F7DC6F; }
+    .about-section:nth-child(4)::before { background: #BB8FCE; }
+    
+    .about-section h3 {
+        font-size: 2em;
+        margin-bottom: 20px;
+        color: #333;
+    }
+    
+    .about-section p {
+        font-size: 1.1em;
+        line-height: 1.8;
+        color: #555;
+        margin-bottom: 15px;
+        font-weight: 300;
+    }
+    
+    .values-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 25px;
+        margin-top: 30px;
+    }
+    
+    .value-card {
+        text-align: center;
+        padding: 30px 20px;
+        background: linear-gradient(135deg, #f8f9fa 0%, #ffffff 100%);
+        border-radius: 15px;
+        transition: all 0.3s ease;
+    }
+    
+    .value-card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+    }
+    
+    .value-icon {
+        font-size: 3em;
+        margin-bottom: 15px;
+    }
+    
+    .value-card h4 {
+        font-size: 1.3em;
+        color: #333;
+        margin-bottom: 10px;
+    }
+    
+    .value-card p {
+        font-size: 0.95em;
+        color: #666;
+    }
+</style>
+
+<div class="page-header">
+    <h2>🌟 About Us 🌟</h2>
+</div>
+
+<div class="about-content">
+    <div class="about-section">
+        <h3>Who We Are</h3>
+        <p>Welcome to Creativity and Life! We are passionate about empowering individuals to explore their creative potential and learn new skills. Our platform is dedicated to providing high-quality educational content across various creative domains including cooking, art and craft, jewelry making, baking, and much more.</p>
+        <p>We believe that everyone has a creative spark within them, and our mission is to help you discover and nurture that creativity through engaging video tutorials and comprehensive online classes.</p>
+    </div>
+    
+    <div class="about-section">
+        <h3>Our Mission</h3>
+        <p>To make creative education accessible, enjoyable, and inspiring for everyone. We strive to create a supportive learning environment where students of all skill levels can grow, experiment, and express themselves through various creative pursuits.</p>
+    </div>
+    
+    <div class="about-section">
+        <h3>What We Offer</h3>
+        <p>Our platform features carefully curated video tutorials and structured online classes taught by experienced instructors. Whether you're a complete beginner or looking to refine your skills, we have something for everyone.</p>
+        <div class="values-grid">
+            <div class="value-card">
+                <div class="value-icon">🎨</div>
+                <h4>Diverse Categories</h4>
+                <p>From cooking to crafts, explore various creative fields</p>
+            </div>
+            <div class="value-card">
+                <div class="value-icon">📚</div>
+                <h4>Expert Instructors</h4>
+                <p>Learn from experienced professionals</p>
+            </div>
+            <div class="value-card">
+                <div class="value-icon">💡</div>
+                <h4>Flexible Learning</h4>
+                <p>Study at your own pace, anytime</p>
+            </div>
+            <div class="value-card">
+                <div class="value-icon">🤝</div>
+                <h4>Supportive Community</h4>
+                <p>Join a community of creative learners</p>
+            </div>
+        </div>
+    </div>
+    
+    <div class="about-section">
+        <h3>Join Our Creative Journey</h3>
+        <p>Whether you want to learn a new hobby, develop professional skills, or simply express your creativity, Creativity and Life is here to support you every step of the way. Explore our categories, browse our online classes, and start your creative journey today!</p>
+    </div>
+</div>
+{% endblock %}

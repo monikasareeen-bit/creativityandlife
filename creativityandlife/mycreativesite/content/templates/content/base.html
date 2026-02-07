@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}Creativity and Life{% endblock %}</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Poppins', sans-serif;
+            line-height: 1.7;
+            color: #333;
+            background: linear-gradient(to bottom, #fff5f7 0%, #fffbf0 50%, #f0f9ff 100%);
+            min-height: 100vh;
+        }
+        
+        h1, h2, h3, h4 {
+            font-family: 'Playfair Display', serif;
+            font-weight: 700;
+        }
+        
+        header {
+            background: linear-gradient(135deg, #ff6b9d 0%, #c06c84 50%, #f67280 100%);
+            color: white;
+            padding: 35px 0;
+            box-shadow: 0 5px 30px rgba(255, 107, 157, 0.3);
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 30px;
+        }
+        
+        .logo-section {
+            text-align: center;
+            margin-bottom: 25px;
+        }
+        
+        .logo-section h1 {
+            font-size: 3.2em;
+            margin-bottom: 10px;
+            letter-spacing: 1px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
+            animation: fadeInDown 0.8s ease;
+        }
+        
+        .logo-section .tagline {
+            font-size: 1.1em;
+            letter-spacing: 2px;
+            opacity: 0.95;
+            font-weight: 300;
+            animation: fadeInUp 0.8s ease;
+        }
+        
+        @keyframes fadeInDown {
+            from {
+                opacity: 0;
+                transform: translateY(-20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        nav {
+            background: rgba(255, 255, 255, 0.25);
+            padding: 15px 0;
+            border-radius: 50px;
+            backdrop-filter: blur(10px);
+        }
+        
+        nav ul {
+            list-style: none;
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+        
+        nav ul li {
+            margin: 5px 15px;
+        }
+        
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+            padding: 12px 30px;
+            border-radius: 30px;
+            transition: all 0.3s ease;
+            font-weight: 500;
+            letter-spacing: 0.5px;
+            background: rgba(255, 255, 255, 0.1);
+        }
+        
+        nav ul li a:hover {
+            background: rgba(255, 255, 255, 0.3);
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+        }
+        
+        main {
+            min-height: 70vh;
+            padding: 50px 0;
+        }
+        
+        footer {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            text-align: center;
+            padding: 35px 0;
+            margin-top: 60px;
+            font-weight: 300;
+            letter-spacing: 1px;
+        }
+        
+        .alert {
+            padding: 20px 30px;
+            margin: 25px 0;
+            border-radius: 12px;
+            font-weight: 400;
+            animation: slideIn 0.5s ease;
+        }
+        
+        @keyframes slideIn {
+            from {
+                opacity: 0;
+                transform: translateX(-20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+        
+        .alert-success {
+            background: linear-gradient(135deg, #11998e 0%, #38ef7d 100%);
+            color: white;
+            border: none;
+            box-shadow: 0 5px 20px rgba(17, 153, 142, 0.3);
+        }
+        
+        .card {
+            background: white;
+            border-radius: 15px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.08);
+            transition: all 0.3s ease;
+            overflow: hidden;
+        }
+        
+        .card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 12px 35px rgba(0,0,0,0.15);
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="logo-section">
+                <h1>✨ Creativity & Life ✨</h1>
+                <p class="tagline">Explore • Learn • Create • Inspire</p>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="{% url 'home' %}">🏠 Home</a></li>
+                    <li><a href="{% url 'online_classes' %}">📚 Online Classes</a></li>
+                    <li><a href="{% url 'enquiry_form' %}">✉️ Enquiry</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+    
+    <main>
+        <div class="container">
+            {% if messages %}
+                {% for message in messages %}
+                    <div class="alert alert-success">✅ {{ message }}</div>
+                {% endfor %}
+            {% endif %}
+            
+            {% block content %}
+            {% endblock %}
+        </div>
+    </main>
+    
+    <footer>
+    <div class="container">
+        <div style="display: flex; justify-content: center; gap: 30px; margin-bottom: 20px; flex-wrap: wrap;">
+            <a href="{% url 'home' %}" style="color: white; text-decoration: none; transition: opacity 0.3s;">Home</a>
+            <a href="{% url 'about_us' %}" style="color: white; text-decoration: none; transition: opacity 0.3s;">About Us</a>
+            <a href="{% url 'online_classes' %}" style="color: white; text-decoration: none; transition: opacity 0.3s;">Online Classes</a>
+            <a href="{% url 'contact_us' %}" style="color: white; text-decoration: none; transition: opacity 0.3s;">Contact Us</a>
+            <a href="{% url 'enquiry_form' %}" style="color: white; text-decoration: none; transition: opacity 0.3s;">Enquiry</a>
+        </div>
+        <p>💖 &copy; 2026 Creativity and Life. Crafted with passion and creativity.</p>
+    </div>
+</footer>
+</body>
+</html>

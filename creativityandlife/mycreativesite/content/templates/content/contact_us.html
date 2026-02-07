@@ -1,0 +1,228 @@
+{% extends 'content/base.html' %}
+
+{% block title %}Contact Us - Creativity and Life{% endblock %}
+
+{% block content %}
+<style>
+    .page-header {
+        text-align: center;
+        margin-bottom: 50px;
+        padding: 40px 20px;
+        background: white;
+        border-radius: 20px;
+        box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+        position: relative;
+        overflow: hidden;
+    }
+    
+    .page-header::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        height: 6px;
+        background: linear-gradient(90deg, #FF6B9D, #FFA07A, #98D8C8, #F7DC6F, #BB8FCE, #85C1E2);
+    }
+    
+    .page-header h2 {
+        font-size: 2.8em;
+        margin-bottom: 15px;
+        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+    }
+    
+    .page-header p {
+        font-size: 1.2em;
+        color: #666;
+        font-weight: 300;
+    }
+    
+    .contact-container {
+        max-width: 1000px;
+        margin: 0 auto;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 40px;
+    }
+    
+    .contact-info {
+        background: white;
+        padding: 40px;
+        border-radius: 20px;
+        box-shadow: 0 5px 20px rgba(0,0,0,0.08);
+    }
+    
+    .contact-info h3 {
+        font-size: 2em;
+        margin-bottom: 25px;
+        color: #333;
+    }
+    
+    .contact-item {
+        margin-bottom: 30px;
+        padding: 20px;
+        background: linear-gradient(135deg, #f8f9fa 0%, #ffffff 100%);
+        border-radius: 12px;
+        border-left: 4px solid #667eea;
+        transition: all 0.3s ease;
+    }
+    
+    .contact-item:hover {
+        transform: translateX(5px);
+        box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    }
+    
+    .contact-item:nth-child(2) { border-left-color: #FF6B9D; }
+    .contact-item:nth-child(3) { border-left-color: #98D8C8; }
+    .contact-item:nth-child(4) { border-left-color: #F7DC6F; }
+    
+    .contact-item-icon {
+        font-size: 2em;
+        margin-bottom: 10px;
+    }
+    
+    .contact-item h4 {
+        font-size: 1.3em;
+        color: #333;
+        margin-bottom: 8px;
+    }
+    
+    .contact-item p {
+        color: #666;
+        font-size: 1.05em;
+        line-height: 1.6;
+    }
+    
+    .contact-item a {
+        color: #667eea;
+        text-decoration: none;
+        font-weight: 500;
+    }
+    
+    .contact-item a:hover {
+        text-decoration: underline;
+    }
+    
+    .quick-enquiry {
+        background: white;
+        padding: 40px;
+        border-radius: 20px;
+        box-shadow: 0 5px 20px rgba(0,0,0,0.08);
+    }
+    
+    .quick-enquiry h3 {
+        font-size: 2em;
+        margin-bottom: 25px;
+        color: #333;
+    }
+    
+    .quick-enquiry p {
+        color: #666;
+        margin-bottom: 25px;
+        line-height: 1.7;
+        font-weight: 300;
+    }
+    
+    .enquiry-button {
+        background: linear-gradient(135deg, #FF6B9D 0%, #FFA07A 100%);
+        color: white;
+        padding: 15px 35px;
+        text-decoration: none;
+        border-radius: 30px;
+        display: inline-block;
+        font-weight: 700;
+        transition: all 0.3s ease;
+        box-shadow: 0 5px 20px rgba(255, 107, 157, 0.3);
+        font-size: 1.1em;
+    }
+    
+    .enquiry-button:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 8px 30px rgba(255, 107, 157, 0.4);
+    }
+    
+    .social-links {
+        margin-top: 30px;
+        display: flex;
+        gap: 15px;
+    }
+    
+    .social-link {
+        width: 50px;
+        height: 50px;
+        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        color: white;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: 50%;
+        text-decoration: none;
+        font-size: 1.5em;
+        transition: all 0.3s ease;
+        box-shadow: 0 4px 15px rgba(102, 126, 234, 0.3);
+    }
+    
+    .social-link:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 8px 25px rgba(102, 126, 234, 0.4);
+    }
+    
+    @media (max-width: 768px) {
+        .contact-container {
+            grid-template-columns: 1fr;
+        }
+    }
+</style>
+
+<div class="page-header">
+    <h2>📞 Contact Us 📞</h2>
+    <p>We'd love to hear from you!</p>
+</div>
+
+<div class="contact-container">
+    <div class="contact-info">
+        <h3>Get In Touch</h3>
+        
+        <div class="contact-item">
+            <div class="contact-item-icon">📧</div>
+            <h4>Email</h4>
+            <p><a href="mailto:info@creativityandlife.com">info@creativityandlife.com</a></p>
+        </div>
+        
+        <div class="contact-item">
+            <div class="contact-item-icon">📱</div>
+            <h4>Phone</h4>
+            <p><a href="tel:+919876543210">+91 98765 43210</a></p>
+        </div>
+        
+        <div class="contact-item">
+            <div class="contact-item-icon">📍</div>
+            <h4>Address</h4>
+            <p>123 Creative Street, Art District<br>Mumbai, Maharashtra 400001<br>India</p>
+        </div>
+        
+        <div class="contact-item">
+            <div class="contact-item-icon">⏰</div>
+            <h4>Business Hours</h4>
+            <p>Monday - Saturday: 9:00 AM - 6:00 PM<br>Sunday: Closed</p>
+        </div>
+        
+        <div class="social-links">
+            <a href="#" class="social-link" title="Facebook">📘</a>
+            <a href="#" class="social-link" title="Instagram">📷</a>
+            <a href="#" class="social-link" title="YouTube">📹</a>
+            <a href="#" class="social-link" title="Twitter">🐦</a>
+        </div>
+    </div>
+    
+    <div class="quick-enquiry">
+        <h3>Quick Enquiry</h3>
+        <p>Have a question about our classes or need more information? Fill out our enquiry form and we'll get back to you within 24 hours.</p>
+        <p>Whether you're interested in enrolling in a class, have questions about our teaching methods, or want to explore partnership opportunities, we're here to help!</p>
+        <a href="{% url 'enquiry_form' %}" class="enquiry-button">📝 Submit Enquiry Form</a>
+    </div>
+</div>
+{% endblock %}
