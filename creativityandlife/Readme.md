@@ -1,19 +1,26 @@
-# Creativity and Life
+# Creativity and Life 🎨✨
 
-A Django-based website to showcase categorized videos and allow users to apply for creative classes.
+**Creativity and Life** is a Django-based web platform designed to showcase categorized creative videos and allow users to apply for online creative classes.
 
-## Features
-- Video categories
-- User class application form
-- Admin management
-- Clean Django project structure
+This project is suitable for creators, instructors, and small businesses who want to present their work professionally and collect class enquiries online.
 
-## Tech Stack
-- Python
-- Django
-- HTML, CSS, JavaScript
+---
 
-## Setup
-```bash
-pip install -r requirements.txt
-python manage.py runserver
+## 🔹 Features
+- Categorized video listing
+- Clean and responsive UI
+- Class enquiry / application form
+- Admin panel for content management
+- Scalable Django project structure
+
+---
+
+## 🔹 Tech Stack
+- **Backend:** Python, Django
+- **Frontend:** HTML, CSS, JavaScript
+- **Database:** SQLite (can be upgraded to PostgreSQL/MySQL)
+- **Version Control:** Git & GitHub
+
+---
+
+## 🔹 Project Structure
